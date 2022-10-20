@@ -1,8 +1,10 @@
-package com.dynamic.mms;
+package com.dynamic.mms.view.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.dynamic.mms.R;
 
 public class MainActivity extends AppCompatActivity {
 

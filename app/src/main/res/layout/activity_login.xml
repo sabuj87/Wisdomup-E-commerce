@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="@drawable/background"
+    tools:context=".view.activities.LoginActivity">
+
+
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="20px"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:padding="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/logo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="30px"
+                android:src="@drawable/mms"
+                android:layout_width="60dp"
+                android:layout_height="60dp">
+
+            </ImageView>
+            <TextView
+                android:id="@+id/loginText"
+                android:textAlignment="center"
+                android:text="LOGIN TO YOUR ACCOUNT"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/logo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+               app:boxStrokeColor="@color/colorPrimaryDark"
+                app:hintTextColor="@color/colorPrimaryDark"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:id="@+id/textlayoutUser"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/loginText"
+                android:layout_height="wrap_content">
+
+
+                <EditText
+                    android:focusable="true"
+                    android:hint="Username"
+                    android:id="@+id/username"
+                    android:inputType="text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:boxStrokeColor="@color/colorPrimaryDark"
+                app:hintTextColor="@color/colorPrimaryDark"
+                android:layout_width="match_parent"
+                android:id="@+id/textlayoutPassword"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/textlayoutUser"
+                android:layout_height="wrap_content">
+
+
+                <EditText
+                    android:focusable="true"
+                    android:hint="Password"
+                    android:id="@+id/dateET"
+                    android:inputType="textPassword"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/forgotPasswordText"
+                android:textColor="@color/colorPrimary"
+                android:text="Forgot Password?"
+                android:layout_marginTop="10dp"
+                android:textAlignment="textEnd"
+                app:layout_constraintTop_toBottomOf="@id/textlayoutPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+              android:backgroundTint="@color/colorPrimary"
+                android:text="L O G I N"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/forgotPasswordText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
