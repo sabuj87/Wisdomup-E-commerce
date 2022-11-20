@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    tools:context=".view.fragments.HomeFragment">
+
+
+    <TextView
+        android:id="@+id/headText"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:text="MANAGE"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/l1"
+        android:weightSum="4"
+        app:layout_constraintTop_toBottomOf="@id/headText"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+
+            android:padding="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="90dp">
+
+            <TextView
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:text="SUBMIT VISION  MISION CONTROL"
+                android:background="@color/lightGreen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+
+            android:padding="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="90dp">
+
+            <TextView
+                android:gravity="center"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:text="SUBMIT VISION"
+                android:background="@color/lightGreen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+
+            android:padding="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="90dp">
+
+            <TextView
+                android:gravity="center"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:text="SUBMIT VISION"
+                android:background="@color/lightGreen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+
+            android:padding="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="90dp">
+
+            <TextView
+                android:gravity="center"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:text="SUBMIT VISION"
+                android:background="@color/lightGreen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/l2"
+        android:weightSum="4"
+        app:layout_constraintTop_toBottomOf="@id/l1"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+
+            android:padding="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="90dp">
+
+            <TextView
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:text="SUBMIT VISION  MISION CONTROL"
+                android:background="@color/lightGreen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+
+            android:padding="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="90dp">
+
+            <TextView
+                android:gravity="center"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:text="SUBMIT VISION"
+                android:background="@color/lightGreen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+
+            android:padding="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="90dp">
+
+            <TextView
+                android:gravity="center"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:text="SUBMIT VISION"
+                android:background="@color/lightGreen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+
+            android:padding="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="90dp">
+
+            <TextView
+                android:gravity="center"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:text="SUBMIT VISION"
+                android:background="@color/lightGreen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/l3"
+        android:weightSum="4"
+        app:layout_constraintTop_toBottomOf="@id/l2"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+
+            android:padding="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="90dp">
+
+            <TextView
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:text="SUBMIT VISION  MISION CONTROL"
+                android:background="@color/lightGreen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+
+            android:padding="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="90dp">
+
+            <TextView
+                android:gravity="center"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:text="SUBMIT VISION"
+                android:background="@color/lightGreen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+
+            android:padding="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="90dp">
+
+            <TextView
+                android:id="@+id/investBtn"
+                android:gravity="center"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:text="INVEST"
+                android:background="@color/lightGreen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+
+            android:padding="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="90dp">
+
+            <TextView
+                android:gravity="center"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:text="SUBMIT VISION"
+                android:background="@color/lightGreen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/l4"
+        android:weightSum="4"
+        app:layout_constraintTop_toBottomOf="@id/l3"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+
+            android:padding="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="90dp">
+
+            <TextView
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:text="SUBMIT VISION  MISION CONTROL"
+                android:background="@color/lightGreen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+
+            android:padding="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="90dp">
+
+            <TextView
+                android:gravity="center"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:text="SUBMIT VISION"
+                android:background="@color/lightGreen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+
+            android:padding="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="90dp">
+
+            <TextView
+                android:gravity="center"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:text="SUBMIT VISION"
+                android:background="@color/lightGreen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+
+            android:padding="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="90dp">
+
+            <TextView
+                android:gravity="center"
+                android:padding="3dp"
+                android:textAlignment="center"
+                android:text="SUBMIT VISION"
+                android:background="@color/lightGreen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu  xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/a">
+        <item
+            android:id="@+id/about"
+            android:title="ENDEAVOR"
+            />
+        <item
+            android:id="@+id/contact"
+            android:title="MANAGEMENT"/>
+        <item
+            android:id="@+id/copyright"
+            android:title="RESOLUTION"/>
+    </group>
+    <group android:id="@+id/b">
+        <item
+            android:id="@+id/website"
+            android:title="SETTINGS"/>
+
+
+
+
+    </group>
+
+</menu>

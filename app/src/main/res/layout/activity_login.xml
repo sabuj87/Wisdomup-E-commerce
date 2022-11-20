@@ -73,14 +73,16 @@
                 android:layout_width="match_parent"
                 android:id="@+id/textlayoutPassword"
                 android:layout_marginTop="10dp"
+                app:passwordToggleEnabled="true"
                 app:layout_constraintTop_toBottomOf="@id/textlayoutUser"
                 android:layout_height="wrap_content">
 
 
                 <EditText
+
                     android:focusable="true"
                     android:hint="Password"
-                    android:id="@+id/dateET"
+                    android:id="@+id/password"
                     android:inputType="textPassword"
 
                     android:layout_width="match_parent"
@@ -100,6 +102,7 @@
                 android:layout_height="wrap_content"/>
 
             <Button
+                android:id="@+id/loginBtn"
               android:backgroundTint="@color/colorPrimary"
                 android:text="L O G I N"
                 android:layout_marginTop="10dp"

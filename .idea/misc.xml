@@ -3,9 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Dynamic/dynamic-raam-mms-android-app/app/src/main/res/drawable/ic_four_dot.xml" value="0.1" />
+        <entry key="..\:/Dynamic/dynamic-raam-mms-android-app/app/src/main/res/drawable/roundcorner2.xml" value="0.1" />
         <entry key="..\:/Dynamic/dynamic-raam-mms-android-app/app/src/main/res/layout/activity_login.xml" value="0.17255434782608695" />
-        <entry key="..\:/Dynamic/dynamic-raam-mms-android-app/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Dynamic/dynamic-raam-mms-android-app/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Dynamic/dynamic-raam-mms-android-app/app/src/main/res/layout/activity_splash.xml" value="0.17255434782608695" />
+        <entry key="..\:/Dynamic/dynamic-raam-mms-android-app/app/src/main/res/layout/bottom_nav_layout.xml" value="0.15" />
+        <entry key="..\:/Dynamic/dynamic-raam-mms-android-app/app/src/main/res/layout/envest_rv_layout.xml" value="0.16770833333333332" />
+        <entry key="..\:/Dynamic/dynamic-raam-mms-android-app/app/src/main/res/layout/fragment_home.xml" value="0.19610507246376813" />
+        <entry key="..\:/Dynamic/dynamic-raam-mms-android-app/app/src/main/res/layout/fragment_invest.xml" value="0.19610507246376813" />
+        <entry key="..\:/Dynamic/dynamic-raam-mms-android-app/app/src/main/res/layout/fragment_task.xml" value="0.1" />
+        <entry key="..\:/Dynamic/dynamic-raam-mms-android-app/app/src/main/res/layout/nav_drawer_header_layout.xml" value="0.1" />
+        <entry key="..\:/Dynamic/dynamic-raam-mms-android-app/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1796875" />
+        <entry key="..\:/Dynamic/dynamic-raam-mms-android-app/app/src/main/res/menu/menu_layout.xml" value="0.1" />
         <entry key="..\:/Dynamic/dynamic-raam-mms-android-app/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1115" />
       </map>
     </option>

@@ -25,7 +25,7 @@ public class AppConstant {
     public static final String ACCESS_TOKEN                     = "accessToken";
     public static final String SECURE_TOKEN                     = "secureToken";
 
-    public static final String API_URL                          = "http://10.0.0.102:8080";
+    public static final String API_URL                          = "http://192.168.0.108:8080";
     //public static final String API_URL                          = "http://ec2-54-193-27-2.us-west-1.compute.amazonaws.com:8080";
 
 }
