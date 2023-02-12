@@ -16,6 +16,13 @@
 </div>
 
 @endif
+@if(Session::has('order'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <h5 class="bondFont" >{{Session::get('order')}}</h5>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+@endif
 
 @if(Session::has('serror'))
 <div class="alert alert-danger alert-dismissible fade show" role="alert">

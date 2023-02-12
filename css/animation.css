@@ -1,0 +1,251 @@
+@keyframes fade {
+    0% {
+         opacity: 0%;
+        
+    }
+
+    100% {
+         opacity: 100%;
+        
+    }
+}
+.fade{
+    animation-delay: 6s;
+   animation-name:fade;
+   animation-duration:1s;
+}
+@keyframes fadeInUp {
+    0% {
+        transform: scale(0);
+		
+      }
+    
+      100% {
+        transform: scale(1);
+
+      }
+  }
+
+  @keyframes vout {
+    0% {
+        transform: scaleY(1);
+      }
+    
+      100% {
+        transform: scaleY(0);
+      }
+  }
+
+  .vout{
+     
+     animation-name: vout;
+      animation-duration: 1s;
+  }
+  @keyframes vx {
+    0% {
+        transform: scaleX(1);
+      }
+      50% {
+        transform: scaleX(.2);
+      }
+      60% {
+        transform: scaleX(.3);
+      }
+      100% {
+        transform: scaleX(0);
+        
+      }
+  }
+  @keyframes chat {
+    0% {
+        margin-right: 0px;
+      }
+    
+      100% {
+        margin-right: 40px;
+        
+      }
+  }
+  #chat:hover{
+    margin-right: 40px;
+        
+     animation-name: chat;
+    animation-duration: 1s;
+
+
+  }
+  #chat:hover #arrow {
+  visibility: visible;
+
+
+  }
+
+  .vx{
+    transform: scaleX(0);
+     animation-name: vx;
+      animation-duration: 1s;
+  }
+  
+  .fadeInUp {
+    -webkit-animation-name: fadeInUp;
+            animation-name: fadeInUp;
+            animation-duration: 3s;
+  }
+  
+
+@keyframes big {
+    0% {
+        transform: scale(1);
+        
+    }
+
+    100% {
+       
+        
+    }
+}
+#box1{
+
+    transition-duration: 1.5s;
+
+
+}
+#box1:hover{
+  transform: scale(1.04);
+  
+    
+}
+#dbox{
+
+    display: none;
+}
+#box1:hover #dbox {
+    display: block;
+    
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+    
+}
+#nmenu:hover #mec {
+  transform: scaleY(1);
+  animation-name: fadeInUp;
+  animation-duration: 1s;
+  background-color: rgb(207, 85, 40);
+		
+
+
+}
+
+.serc:hover .ser {
+  
+  animation-name: fadeInUp;
+  animation-duration: 3s;
+  background-color: #382C63;
+
+  cursor: pointer;
+
+
+}
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 10%, 0);
+            transform: translate3d(0, 10%, 0);
+  }
+ 
+  100% {
+   opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+	    
+  
+}
+
+
+.fadeInLeft {
+	  opacity: 1;
+  -webkit-animation-name: fadeInLeft;
+          animation-name: fadeInLeft;
+          animation-duration: 2s;
+}
+
+@keyframes fadeLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-25%, 0, 0);
+            transform: translate3d(-25%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+
+.fadeLeft {
+  -webkit-animation-name: fadeLeft;
+          animation-name: fadeLeft;
+          animation-duration: 1s;
+}
+
+@keyframes swipeRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(30%, 0, 0);
+            transform: translate3d(30%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+
+.swipeRight {
+  -webkit-animation-name: swipeRight;
+          animation-name: swipeRight;
+          animation-duration: .5s;
+}
+
+@keyframes am1 {
+  0% {
+
+padding-left:120%;
+  }
+ 
+  100% {
+padding-left:0%;
+  }
+	    
+  
+}
+
+.am1{
+	    animation-name: am1;
+          animation-duration: 1.5s;
+	 animation-delay: .5;
+
+}
+
+@keyframes am2 {
+  0% {
+margin-top:-20%;
+  }
+ 
+  100% {
+margin-top:0%;
+  }
+	    
+  
+}
+
+.am2{
+	    animation-name: am2;
+          animation-duration: 1.5s;
+	
+}

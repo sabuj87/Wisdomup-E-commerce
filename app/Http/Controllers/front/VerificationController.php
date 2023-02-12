@@ -12,15 +12,13 @@ class VerificationController extends Controller
         $user = User::where('remember_token',$token)->first(); 
         if(!is_null($user)){
            $user->status = 1;
-    
            $user->remember_token = NULL;
            $user->save();
-           session()->flash('success','You are registered successfully ');
-           return redirect('/');
+           flash('Your email address is verified  !')->success();
+           return redirect()->route('login');
         }else{
-   
-           session()->flash('errors','Sorry !! your token  is not matched');
-   
+          flash('Sorry !! your token  is not matched!')->success();
+         
         }
        
    

@@ -29,12 +29,14 @@
 
                         <div class="card-body" >
                             <a href="{{route('products.create')}}" class="btn btn-primary" > <i class="fa fa-plus" ></i> Add product</a>
-
+                            
+                            <a href="{{route('products.index')}}" class="btn btn-primary" >Products</a>
                             <table class="table dataTable">
                                 <thead>
                                 <tr>
                                     <th>#SL</th>
                                     <th>Title</th>
+                                    <th>Category</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
                                     <th>Image</th>
@@ -50,9 +52,10 @@
                                         <tr>
                                             <td>{{++$key}}</td>
                                             <td>{{$product->title ?? ''}}</td>
+                                            <td>{{$product->category->name ?? ''}}</td>
                                             <td>{{$product->price ?? ''}}</td>
                                             <td>{{$product->quantity ?? ''}}</td>
-                                            <td><img src="{{asset('image/product/'.$product->title.'/'.$product->image)}}" height="80px" width="80px" ></td>
+                                            <td><img src="{{asset('image/product/'.$product->image)}}" height="50px" width="50px" ></td>
                                             <td>
                                                 <a href="{{route('products.edit',$product->id)}}" class="btn btn-sm btn-info" >
                                                     <i class="fa fa-edit" ></i>   Edit
@@ -60,6 +63,10 @@
                                                 </a>
                                                 <a href="javascript:;" class="btn btn-sm btn-danger sa-delete" data-form-id="category-delete-{{$product->id}}" >
                                                     <i class="fa fa-trash" ></i>   Delete
+
+                                                </a>
+                                                <a href="javascript:;" class="btn btn-sm btn-warning " data-form-id="category-delete-{{$product->id}}" >
+                                                      Reviews
 
                                                 </a>
 
@@ -80,7 +87,12 @@
 
                             </table>
 
+
+                           
                         </div>
+                        <div class="d-flex justify-content-center">
+                            {!! $products->links() !!} 
+                          </div>
 
 
                     </div>

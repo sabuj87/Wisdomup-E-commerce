@@ -70,8 +70,6 @@ class RegisterController extends Controller
             [
                 'first_name' => ['required', 'string', 'max:255'],
                 'last_name' => ['nullable', 'string', 'max:15'],
-                'phone_no' => ['required','numeric'],
-                'street_address' => ['required', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'password' => ['required', 'string', 'min:8', 'confirmed'],
                
@@ -88,10 +86,6 @@ class RegisterController extends Controller
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'username' => $request->first_name,
-            'street_address' => $request->street_address,
-            'division_id' => 1,
-            'district_id' => 1,
-            'phone_no' => $request->phone_no,
             'email' => $request->email,
             'ip_address' => request()->ip(),
             'remember_token'=> Str::random(40),
@@ -99,8 +93,10 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
         $user ->notify(new ConfirmRegNotification($user,$user->remember_token));
-        session()->flash('success','A confirmation email has sent to you..Please check and verify');
 
-        return redirect('/');
+
+        flash('A  confirmation email has sent to you..Please check and verify')->success();
+
+        return  redirect()->route('home');
     }
 }

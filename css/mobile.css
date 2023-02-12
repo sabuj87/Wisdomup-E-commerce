@@ -5,7 +5,40 @@ body{
    padding-bottom: 250%;
     font-family: 'Rubik', sans-serif;
 }
+[class*="colc-"]{
+    float: left;
+width: 250px;
 
+   
+  
+
+}
+[class*="colca-"]{
+    float: left;
+width: 200px;
+
+   
+  
+
+}
+.navbs{
+
+    font-size:120%
+}
+
+.inner_wrapper{
+    width:2000px;
+}
+
+.outer_wrapper{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 100%;
+    white-space:nowrap;
+ 
+ 
+
+}
 #heart{
     float: right;
 }
@@ -15,9 +48,11 @@ body{
 .slideItem{
     width: 100%;
     border: 1px solid #e9e4e3 ;
-    height: 250px;
+    height: 300px;
     position: relative;
     border-radius: 5px;
+    width:300px;
+    margin:0px 5px
 
 }
 .banner{
@@ -45,4 +80,44 @@ body{
 }
 .loginbanner{
     display: none;
+}
+.sildeImage{
+    height: 300px;
+   
+   
+}
+.catholder{
+    width: 100%;
+}
+.dnone{
+    display: none;
+}
+.over{
+    overflow: scroll;
+}
+#descat{
+
+    display: none;
+}
+#mobcat{
+    display: block;
+}
+.logom{
+    height: 20px;
+    width: 50px;
+}
+.heads{
+    display: inline;
+}
+#btNav{
+    display: block;
+}
+.dfooter{
+    display: none;
+}
+.mfooter{
+    display: block;
+}
+.dsocial{
+    margin-bottom: 80px;
 }

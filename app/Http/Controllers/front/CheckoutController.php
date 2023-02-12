@@ -13,7 +13,10 @@ class CheckoutController extends Controller
 {
     public function  index(){
 
-        return view('front.pages.checkout.checkout');
+        
+      $cart = new Cart();
+      $carts = $cart->totalCarts();
+      return view('front.pages.Checkout', compact('carts'));
  
      }
  
@@ -21,27 +24,15 @@ class CheckoutController extends Controller
          $this->validate($request,[
             'name' => 'required',
             'phone_no' =>'required',
+            'email' =>'required',
             'shipping_address' =>'required',
-            'payment_method_id' =>'required'
+            'payment_id' =>'required'
  
  
          ]);
           $order =new Order();
  
-          //check transaction id given or not
-           if($request->payment_method_id !='cash_in' ){
- 
-           if($request->transaction_id == NULL || empty($request->transaction_id)){
- 
-               session()->flash('s_error','Please give transaction ID  for your Payments');
-               return back();
- 
-           }else{
-             $order->transaction_id=$request->transaction_id;
- 
-           }
- 
-           }
+   
           $order->name=$request->name;
           $order->email=$request->email;
           $order->phone_no=$request->phone_no;
@@ -53,9 +44,9 @@ class CheckoutController extends Controller
             
           }
  
-         $order->payment_id = Payment::where('short_name',$request->payment_method_id)->first()->id;
+         $order->payment_id = $request->payment_id; //Payment::where('short_name',$request->payment_method_id)->first()->id;
  
-         session()->flash('success','Your order has kaken suceessfully !!! Please wait admin will soon confirm it');
+         session()->flash('order','Your order has taken suceessfully !!! Please wait admin will soon confirm it');
  
        
          $order->save();

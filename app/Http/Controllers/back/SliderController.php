@@ -5,174 +5,164 @@ namespace App\Http\Controllers\back;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Slider;
-use Image;
-use File;
 
 class SliderController extends Controller
-{   
-
-    public function __construct()
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        $this->middleware('auth:admin');
+        $sliders = Slider:: orderby('created_at','DESC')->paginate(10);
+        return  view('back.pages.slider.index',compact('sliders'));
     }
-    
-    public function sliders(){
-        $sliders = Slider::orderBy('id','desc')->get();
-        return view('back.pages.slider.sliders',['sliders'=>$sliders]);
 
-    } 
-    
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('back.pages.slider.create');
+    }
 
- 
-
-    public function store(Request $request){
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
         $request->validate(
             [
-            'title' => 'required|max:150',
             'image' => 'required',
-            'priority' => 'required',
-            'button_link' => 'nullable|url',
-    
-
-           
-            ],
-        [
-
-
-            'title.required' => 'Plz Provied a Title',
-            'image.image' => 'Plz Provied valid image',
-            
-           
-           
-
-           
-        ]
-    
-    
-    
-    );
-        $slider=new Slider;
-
-        $slider->title=$request->title;
-        $slider->priority=$request->priority;
-        $slider->button_link=$request->button_link;
-        $slider->button_text=$request->button_text;
- 
-  
-        $slider->save();
- 
-
-
-
-        if($request->hasFile('image')){
-
-            $image=$request->file('image');
-            $img=time().'.'.$image->getClientOriginalExtension();
-            $location='image/slider/'.$img;
-            Image::make($image)->save($location);
         
-        
-            $slider->image=$img;
+            ]);  
+
+
+            $slider=new Slider;
+
+            $slider->title=$request->title;
+            $slider->url=$request->url;
+            $slider->button_text=$request->btnText;
+            $slider->priority=$request->priorty;
+            $slider->status=$request->status;
+
+            if($request->hasFile('image')){
+                $image=$request->file('image');
+                $imgName=time().'.'.$image->getClientOriginalExtension();
+                $image->move('image/slider',$imgName);
+                $slider->image=$imgName;
+               
+               
+            }
+
 
             $slider->save();
-        }
+            flash('Slider created successfully')->success();
+            return  back();
 
 
-        return redirect()->route('admin.sliders');
+
+
+
 
 
 
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $slider=Slider::find($id);
+
+        return view('back.pages.slider.edit',compact('slider'));
+
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
     
-    public function update(Request $request,$id){
-        $request->validate(
-            [
-            'title' => 'required|max:150',
-            'image' => 'image',
-            'priority' => 'required',
-            'button_link' => 'nullable|url',
-    
-
-           
-            ],
-        [
-
-
-            'title.required' => 'Plz Provied a Title',
-            'image.image' => 'Plz Provied valid image',
-            
-           
-           
-
-           
-        ]
-    
-    
-    
-    );
-    $slider=Slider::find($id);
-
-        $slider->title=$request->title;
-        $slider->priority=$request->priority;
-        $slider->button_link=$request->button_link;
-        $slider->button_text=$request->button_text;
- 
-
-        $slider->save();
-
         
-       
-        if($request->hasFile('image')){
 
-            if(File::exists('image/slider/'. $slider->image)){
+            $slider=Slider::find($id);
 
-                File::delete('image/slider/'. $slider->image);
+            $slider->title=$request->title;
+            $slider->url=$request->url;
+            $slider->button_text=$request->btnText;
+            $slider->priority=$request->priorty;
+            $slider->status=$request->status;
 
-         }
+            if($request->hasFile('image')){
+   
+                if(file_exists("image/slider/".$slider->image)){
+                    unlink("image/slider/".$slider->image);
+                }
 
-            $image=$request->file('image');
-            $img=time().'.'.$image->getClientOriginalExtension();
-            $location='image/slider/'.$img;
-            Image::make($image)->save($location);
-        
-        
-            $slider->image=$img;
+
+                $image=$request->file('image');
+                $imgName=time().'.'.$image->getClientOriginalExtension();
+                $image->move('image/slider',$imgName);
+                $slider->image=$imgName;
+               
+               
+            }
+
 
             $slider->save();
+            flash('Slider Updated successfully')->success();
+            return  back();
+
+
+
+
+
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $slider=Slider::find($id);
+        if(file_exists("image/slider/".$slider->image)){
+            unlink("image/slider/".$slider->image);
         }
 
+        $slider->delete();
+        flash('Slider deleted successfully')->success();
+        return  back();
+ 
 
-
-        return redirect()->route('admin.sliders');
-
-
-
-
-
-
-
-    
-}
-    public function delete($id){
-        $slider = Slider::find($id);
-
-        if(!is_null($slider)){
-
-            if(File::exists('images/slider/'. $slider->image)){
-
-                File::delete('images/slider/'. $slider->image);
-    
-            }
-                $slider->delete();
-    
-    
-                session()->flash('success','Slider has deleted successfully');
-                 return redirect()->route('admin.sliders');
-    
-
-        }
-  
-       
     }
 }

@@ -6,8 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Brand;
 use App\Models\Seller;
+use App\Models\Place;
 use App\Models\Category;
 use App\Models\Review;
+use App\Models\Color;
+use App\Models\DesImage;
 
 class Product extends Model
 {
@@ -20,6 +23,23 @@ class Product extends Model
   
   
       }
+
+      public function desimages(){                            
+    
+        return $this->hasMany(DesImage::class);
+  
+  
+      }
+
+      public function colors(){                            
+    
+        return $this->hasMany(Color::class);
+  
+  
+      }
+
+
+
       public function reviews(){                            
     
         return $this->hasMany(Review::class);
@@ -41,5 +61,10 @@ class Product extends Model
 
 
     return $this->belongsTo(category::class,'category_id');
+}
+
+public function place(){
+
+  return $this->belongsTo(Place::class,'place_id');
 }
 }

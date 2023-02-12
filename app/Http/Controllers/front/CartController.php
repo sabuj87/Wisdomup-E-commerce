@@ -37,7 +37,7 @@ class CartController extends Controller
      }else{
  
          $cart= Cart::
-         where('ip_address',request()->ip())
+         where('ip_address',Request::ip())
          ->where('product_id',$request->product_id)
          ->where('order_id',NULL)
          ->first();
@@ -88,7 +88,7 @@ class CartController extends Controller
     
          }
     
-         $cart->ip_address = request()->ip();
+         $cart->ip_address = Request::ip();
          if($request->has('product_quantity')){
                 if($request->product_quantity > 1 ){
                 
@@ -142,7 +142,7 @@ class CartController extends Controller
  
             return redirect()->route('carts');
          }
-         session()->flash('success','Cart has Delete');
+      
          return back();
  
     }

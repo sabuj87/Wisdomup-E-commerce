@@ -33,8 +33,8 @@
 
                                 <div class="col-lg-6" >
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Category Name</label>
-                                    <input type="text" name="name" class="form-control" id="category_name" placeholder="Enter name">
+                                    <label for="exampleInputEmail1">Category Name *</label>
+                                    <input type="text" name="name" class="form-control" id="category_name" required placeholder="Enter name">
                                     @if($errors->has('name'))
                                         <p class="text-danger ">{{$errors->first('name')}}</p>
                                     @endif
@@ -64,14 +64,18 @@
                                 <div class="form-group">
                                     <label for="exampleInputFile">Icon</label>
                                     <div class="input-group">
-                                      <div class="custom-file">
-                                        <input type="file" name="icon" class="custom-file-input" id="exampleInputFile">
-                                        <label class="custom-file-label" for="exampleInputFile">Choose icon</label>
+                                        <div class="custom-file">
+                                          <input onchange="pimg5.src=window.URL.createObjectURL(this.files[0])" type="file" name="icon" class="custom-file-input" id="exampleInputFile">
+                                          <label class="custom-file-label" for="exampleInputFile">Choose image</label>
+                                        </div>
+                                        <div class="input-group-append">
+                                          <span class="input-group-text">
+                                            <img id="pimg5" onerror="this.src='{{asset('image/other/default.png')}}'"   height="24px" width="24px" src="" alt="">
+          
+                                              
+                                        </span>
+                                        </div>
                                       </div>
-                                      <div class="input-group-append">
-                                        <span class="input-group-text">Upload</span>
-                                      </div>
-                                    </div>
                                   </div>
                                   <div class="form-group">
                                     <label>Show on Homepage</label>
@@ -90,7 +94,7 @@
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Create category</button>
                             </div>
                         </form>
                     </div>

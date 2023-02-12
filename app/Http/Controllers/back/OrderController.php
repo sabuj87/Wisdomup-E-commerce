@@ -15,7 +15,7 @@ class OrderController extends Controller
 
    public function orders(){
       $orders = Order::orderBy('id','desc')->get();
-      return view('back.pages.order.show',compact('orders'));
+      return view('back.pages.order.index',compact('orders'));
    }
 
 
@@ -26,6 +26,8 @@ class OrderController extends Controller
     $order->save();
     return view('back.pages.order.view',compact('order'));
    }
+
+
    public function delete($id){
     $order=Order::find($id);
     $order->delete();
@@ -62,6 +64,8 @@ public function completed($id){
         $order->is_completed=1;
     }
     $order->save();
+    
+    return back();
 
   
 

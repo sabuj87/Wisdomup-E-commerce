@@ -59,7 +59,9 @@ class BrandController extends Controller
         $brand->show_homepage=$request->show;
         $brand->save();
         if($request->hasFile('icon')){
-
+            if(file_exists("image/brand/".$brand->icon)){
+                unlink("image/brand/".$brand->icon);
+            }
             $image=$request->file('icon');
             $imgName=time().'.'.$image->getClientOriginalExtension();
             $image->move('image/brand',$imgName);

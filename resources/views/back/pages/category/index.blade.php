@@ -48,7 +48,7 @@
                                         <tr>
                                             <td>{{++$key}}</td>
                                             <td>{{$category->name ?? ''}}</td>
-                                            <td><img src="{{asset('image/category/'.$category->icon)}}" height="60px" width="60px" ></td>
+                                            <td><img onerror="this.src='{{asset('image/other/default.png')}}'" src="{{asset('image/category/'.$category->icon)}}" height="40px" width="40px" ></td>
 
                                             <td>
                                                 <a href="{{route('categories.edit',$category->id)}}" class="btn btn-sm btn-info" >
@@ -78,6 +78,10 @@
                             </table>
 
                         </div>
+
+                        <div class="d-flex justify-content-center">
+                            {!! $categories->links() !!} 
+                          </div>
 
 
                     </div>

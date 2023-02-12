@@ -23,7 +23,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category:: orderby('created_at','DESC')->get();
+        $categories = Category:: orderby('created_at','DESC')->paginate(5);
         return  view('back.pages.category.index',compact('categories'));
     }
 
@@ -71,7 +71,7 @@ class CategoryController extends Controller
 
         }
         flash('Category created successfully')->success();
-        return  back();
+        return  redirect()->route('categories.index');
 
     }
 
@@ -120,6 +120,13 @@ class CategoryController extends Controller
         $category->save();
         if($request->hasFile('icon')){
 
+            if($category->icon !=null){
+            if(file_exists("image/category/".$category->icon)){
+                    unlink("image/category/".$category->icon);
+            }
+
+            }
+           
             $image=$request->file('icon');
             $imgName=time().'.'.$image->getClientOriginalExtension();
             $image->move('image/category',$imgName);
@@ -128,7 +135,7 @@ class CategoryController extends Controller
 
         }
         flash('Category updated successfully')->success();
-        return  back();
+        return  redirect()->route('categories.index');
 
 
 
@@ -143,7 +150,12 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category :: findOrFail($id);
+        if($category->icon !=null){
+            if(file_exists("image/category/".$category->icon)){
+                    unlink("image/category/".$category->icon);
+            }
 
+            }
         $category->delete();
 
 
@@ -152,14 +164,13 @@ class CategoryController extends Controller
     }
 
 
-    public function getCategoriesJSON(){
+    public function getCategories(){
         $categories = Category :: all();
         return response()->json([
            
             'success'=>true,
             'data'=>$categories
 
-            
 
         ],Response::HTTP_OK);
     }

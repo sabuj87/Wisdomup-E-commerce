@@ -53,7 +53,7 @@ class LoginController extends Controller
          return redirect()->route('admin.index');
 
        }
-      
+     
        return  view('auth.admin.login');
    
     }

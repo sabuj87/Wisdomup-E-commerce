@@ -5,173 +5,149 @@ namespace App\Http\Controllers\back;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Banner;
-use Image;
-use File;
+
 class BannerController extends Controller
-{   
-
-    public function __construct()
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        $this->middleware('auth:admin');
+        $banners=Banner::orderBy('created_at','DESC')->get();
+        return view("back.pages.banner.index",compact('banners'));
     }
-    public function banners(){
-        $banners = Banner::orderBy('id','desc')->get();
-        return view('back.pages.banner.banners',['banners'=>$banners]);
 
-    } 
-    
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('back.pages.banner.create');
+    }
 
- 
-
-    public function store(Request $request){
-        $request->validate(
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+           $request->validate(
             [
-            'title' => 'required|max:150',
-            'image' => 'image',
-            'priority' => 'required',
-            'position' => 'required',
-            'type' => 'required',
-            'button_link' => 'nullable|url',
-    
-
-           
-            ],
-        [
-
-
-            'title.required' => 'Plz Provied a Title',
-            'image.image' => 'Plz Provied valid image',
-            
-           
-           
-
-           
-        ]
-    
-    
-    
-    );
-        $banner=new Banner;
-
-        $banner->title=$request->title;
-        $banner->priority=$request->priority;
-        $banner->position=$request->position;
-        $banner->type=$request->type;
-        $banner->button_link=$request->button_link;
-        $banner->button_text=$request->button_text;
- 
-  
-        $banner->save();
- 
-
-
-
-        if($request->hasFile('image')){
-
-            $image=$request->file('image');
-            $img=time().'.'.$image->getClientOriginalExtension();
-            $location='image/banner/'.$img;
-            Image::make($image)->save($location);
+            'image' => 'required',
         
-        
-            $banner->image=$img;
+            ]);  
+
+            $banner= new Banner;
+
+            $banner->title=$request->title;
+            $banner->type=$request->type;
+            $banner->url=$request->url;
+            $banner->button_text=$request->btnText;
+            $banner->priority=$request->priorty;
+
+            if($request->hasFile('image')){
+                $image=$request->file('image');
+                $imgName=time().'.'.$image->getClientOriginalExtension();
+                $image->move('image/banner',$imgName);
+                $banner->image=$imgName;
+               
+               
+            }
+
 
             $banner->save();
-        }
+            flash('Banner created successfully')->success();
+            return  back();
 
 
-        return redirect()->route('admin.banners');
 
 
 
     }
 
-    
-    public function update(Request $request,$id){
-        $request->validate(
-            [
-            'title' => 'required|max:150',
-            'image' => 'image',
-            'priority' => 'required',
-            'position' => 'required',
-            'type' => 'required',
-            'button_link' => 'nullable|url',
-    
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
 
-           
-            ],
-        [
-
-
-            'title.required' => 'Plz Provied a Title',
-            'image.image' => 'Plz Provied valid image',
-            
-           
-           
-
-           
-        ]
-    
-    
-    
-    );
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
         $banner=Banner::find($id);
+        return view('back.pages.banner.edit',compact('banner'));
+
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $banner= Banner::find($id);
 
         $banner->title=$request->title;
-        $banner->priority=$request->priority;
-        $banner->position=$request->position;
         $banner->type=$request->type;
-        $banner->button_link=$request->button_link;
-        $banner->button_text=$request->button_text;
- 
-  
-        $banner->save();
- 
-
-
+        $banner->url=$request->url;
+        $banner->button_text=$request->btnText;
+        $banner->priority=$request->priorty;
 
         if($request->hasFile('image')){
-            if(File::exists('images/banner/'. $banner->image)){
 
-                File::delete('images/banner/'. $banner->image);
-    
+            if(file_exists("image/banner/".$banner->image)){
+                unlink("image/banner/".$banner->image);
             }
+
+
             $image=$request->file('image');
-            $img=time().'.'.$image->getClientOriginalExtension();
-            $location='image/banner/'.$img;
-            Image::make($image)->save($location);
-        
-        
-            $banner->image=$img;
-
-            $banner->save();
+            $imgName=time().'.'.$image->getClientOriginalExtension();
+            $image->move('image/banner',$imgName);
+            $banner->image=$imgName;
+           
+           
         }
 
 
-        return redirect()->route('admin.banners');
+        $banner->save();
+        flash('Banner updated successfully')->success();
+        return  back();
+    }
 
-
-    
-}
-    public function delete($id){
-        $banner = Banner::find($id);
-
-        if(!is_null($banner)){
-
-            if(File::exists('images/banner/'. $banner->image)){
-
-                File::delete('images/banner/'. $banner->image);
-    
-            }
-                $banner->delete();
-    
-    
-                session()->flash('success','Slider has deleted successfully');
-                 return redirect()->route('admin.banners');
-    
-
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $banner= Banner::find($id);
+        if(file_exists("image/banner/".$banner->image)){
+            unlink("image/banner/".$banner->image);
         }
-  
-       
+        $banner->delete();
+        flash('Banner deleted successfully')->success();
+        return  back();
+
     }
 }

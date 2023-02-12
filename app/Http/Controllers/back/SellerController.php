@@ -51,7 +51,9 @@ class SellerController extends Controller
         $seller->show_homepage=$request->show;
         $seller->save();
         if($request->hasFile('icon')){
-
+            if(file_exists("image/seller/".$seller->icon)){
+                unlink("image/seller/".$seller->icon);
+            }
             $image=$request->file('icon');
             $imgName=time().'.'.$image->getClientOriginalExtension();
             $image->move('image/seller',$imgName);
