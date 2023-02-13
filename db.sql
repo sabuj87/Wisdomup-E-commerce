@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `admins` (
   UNIQUE KEY `admins_email_unique` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table wisdomup.admins: ~1 rows (approximately)
+-- Dumping data for table wisdomup.admins: ~0 rows (approximately)
 /*!40000 ALTER TABLE `admins` DISABLE KEYS */;
 INSERT INTO `admins` (`id`, `name`, `email`, `password`, `avatar`, `phone_no`, `admin_type`, `created_at`, `updated_at`) VALUES
 	(1, 'Abu Saeed Sabuj', 'admin@gmail.com', '$2a$04$d79v2HXr4h.Z7S/mOuBcSeopTtHLZtN7MpV4KA.MTQ/wM053L1JnS', NULL, NULL, 'Super Admin', '2022-11-15 12:17:51', '2022-11-15 12:17:53');
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `brands` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table wisdomup.brands: ~2 rows (approximately)
+-- Dumping data for table wisdomup.brands: ~1 rows (approximately)
 /*!40000 ALTER TABLE `brands` DISABLE KEYS */;
 INSERT INTO `brands` (`id`, `name`, `description`, `country`, `icon`, `show_homepage`, `parent_id`, `created_at`, `updated_at`) VALUES
 	(1, 'Hey', 'feeerer', 'Bangladesh', '1668510277.jpg', 1, NULL, '2022-11-15 11:04:37', '2022-11-15 11:04:37'),
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `carts` (
   PRIMARY KEY (`id`),
   KEY `carts_product_id_foreign` (`product_id`),
   CONSTRAINT `carts_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table wisdomup.carts: ~13 rows (approximately)
 /*!40000 ALTER TABLE `carts` DISABLE KEYS */;
@@ -101,12 +101,17 @@ INSERT INTO `carts` (`id`, `user_id`, `order_id`, `ip_address`, `product_quantit
 	(5, 13, 3, '::1', 2, 34, '2023-01-28 08:37:55', '2023-01-28 09:28:49'),
 	(8, 13, 3, '::1', 2, 42, '2023-01-28 08:51:39', '2023-01-28 09:28:49'),
 	(9, 13, 4, '::1', 6, 32, '2023-01-28 09:29:06', '2023-01-28 10:16:23'),
-	(11, 13, NULL, '::1', 2, 38, '2023-01-28 10:34:34', '2023-02-11 16:30:32'),
+	(11, 13, NULL, '::1', 6, 38, '2023-01-28 10:34:34', '2023-02-13 18:17:26'),
 	(12, NULL, NULL, '10.0.0.101', 1, 37, '2023-02-05 07:08:47', '2023-02-05 07:08:47'),
 	(13, NULL, NULL, '10.0.0.100', 1, 37, '2023-02-06 09:57:58', '2023-02-06 09:57:58'),
 	(14, NULL, NULL, '10.0.0.103', 1, 37, '2023-02-09 03:01:32', '2023-02-09 03:01:32'),
 	(15, NULL, NULL, '10.0.0.103', 1, 31, '2023-02-09 03:01:44', '2023-02-09 03:01:44'),
-	(16, NULL, NULL, '::1', 1, 32, '2023-02-11 16:30:18', '2023-02-11 16:30:18');
+	(16, NULL, NULL, '::1', 2, 32, '2023-02-11 16:30:18', '2023-02-13 18:20:58'),
+	(17, NULL, NULL, '::1', 18, 31, '2023-02-13 18:19:20', '2023-02-13 18:20:44'),
+	(18, NULL, NULL, '::1', 5, 34, '2023-02-13 18:21:00', '2023-02-13 18:25:03'),
+	(19, NULL, NULL, '::1', 1, 34, '2023-02-13 18:21:00', '2023-02-13 18:21:00'),
+	(20, NULL, NULL, '::1', 4, 36, '2023-02-13 18:21:02', '2023-02-13 18:21:04'),
+	(21, NULL, NULL, '::1', 1, 36, '2023-02-13 18:21:02', '2023-02-13 18:21:02');
 /*!40000 ALTER TABLE `carts` ENABLE KEYS */;
 
 -- Dumping structure for table wisdomup.categories
@@ -122,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table wisdomup.categories: ~15 rows (approximately)
+-- Dumping data for table wisdomup.categories: ~14 rows (approximately)
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
 INSERT INTO `categories` (`id`, `name`, `description`, `icon`, `show_homepage`, `parent_id`, `created_at`, `updated_at`) VALUES
 	(7, 'Stone Speakers', 'Stone Speakers', '1668861500.jpg', 0, 0, '2022-11-19 12:38:20', '2022-11-19 12:38:20'),
@@ -200,7 +205,7 @@ CREATE TABLE IF NOT EXISTS `des_images` (
   CONSTRAINT `des_images_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table wisdomup.des_images: ~9 rows (approximately)
+-- Dumping data for table wisdomup.des_images: ~8 rows (approximately)
 /*!40000 ALTER TABLE `des_images` DISABLE KEYS */;
 INSERT INTO `des_images` (`id`, `product_id`, `image`, `created_at`, `updated_at`) VALUES
 	(1, 41, '16747440080.jpg', '2023-01-26 14:40:08', '2023-01-26 14:40:08'),
@@ -239,7 +244,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table wisdomup.migrations: ~22 rows (approximately)
+-- Dumping data for table wisdomup.migrations: ~17 rows (approximately)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '2014_10_12_000000_create_users_table', 1),
@@ -393,7 +398,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table wisdomup.products: ~19 rows (approximately)
+-- Dumping data for table wisdomup.products: ~18 rows (approximately)
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
 INSERT INTO `products` (`id`, `title`, `longtitle`, `price`, `quantity`, `category_id`, `offer`, `offerprice`, `brand_id`, `collection_id`, `seller_id`, `place_id`, `image`, `description`, `specification`, `slug`, `status`, `admin_id`, `created_at`, `updated_at`) VALUES
 	(22, 'Rockerz 333 Pro', 'boAt Rockerz 333 Pro | Wireless Earphone with Non-Stop Music Upto 60 Hours, Asap Charge, IPX5 Water Resistance', 1200, 12, 10, 1, NULL, 3, NULL, 2, '2', '1669710743.jpg', '<p>boAt Rockerz 333 Pro | Wireless Earphone with Non-Stop Music Upto 60 Hours, Asap Charge, IPX5 Water Resistance</p>', NULL, 'Rockerz 333 Pro', 0, 1, '2022-11-29 08:32:23', '2022-11-29 08:32:23'),
@@ -507,6 +512,7 @@ CREATE TABLE IF NOT EXISTS `sliders` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mimage` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `button_text` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` tinyint(3) unsigned NOT NULL DEFAULT '1',
@@ -514,14 +520,14 @@ CREATE TABLE IF NOT EXISTS `sliders` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table wisdomup.sliders: ~3 rows (approximately)
 /*!40000 ALTER TABLE `sliders` DISABLE KEYS */;
-INSERT INTO `sliders` (`id`, `title`, `image`, `button_text`, `url`, `status`, `priority`, `created_at`, `updated_at`) VALUES
-	(5, NULL, '1669615915.jpg', NULL, NULL, 1, 3, '2022-11-28 06:11:55', '2022-11-28 06:14:34'),
-	(6, NULL, '1669615961.jpg', NULL, NULL, 1, 2, '2022-11-28 06:12:42', '2022-11-28 06:12:42'),
-	(9, NULL, '1671621339.jpeg', NULL, NULL, 1, 1, '2022-12-21 11:15:39', '2022-12-21 11:15:39');
+INSERT INTO `sliders` (`id`, `title`, `image`, `mimage`, `button_text`, `url`, `status`, `priority`, `created_at`, `updated_at`) VALUES
+	(11, NULL, '1676305515.jpg', '1676305515m.jpg', NULL, NULL, 1, 1, '2023-02-13 16:25:15', '2023-02-13 16:25:15'),
+	(15, NULL, '1676310823.jpg', '1676310823m.jpg', NULL, NULL, 1, 1, '2023-02-13 17:53:43', '2023-02-13 17:53:43'),
+	(16, NULL, '1676310923.jpg', '1676310923m.jpg', NULL, NULL, 1, 1, '2023-02-13 17:55:23', '2023-02-13 17:55:23');
 /*!40000 ALTER TABLE `sliders` ENABLE KEYS */;
 
 -- Dumping structure for table wisdomup.statistics
@@ -565,7 +571,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_username_unique` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table wisdomup.users: ~1 rows (approximately)
+-- Dumping data for table wisdomup.users: ~0 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `username`, `phone_no`, `email_verified_at`, `password`, `street_address`, `division_id`, `district_id`, `status`, `shipping_address`, `ip_address`, `avater`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(13, 'Abu Saeed', 'Sabuj', 'sabujsaeed@gmail.com', 'Abu Saeed', NULL, NULL, '$2y$10$a1SP8La.OaqdCEZzFQX.buMD.1BpCqZzVt8MZ/I3u3SxZDhXzKksC', NULL, NULL, NULL, 1, NULL, '::1', NULL, NULL, '2022-12-02 04:58:56', '2022-12-02 04:59:22');

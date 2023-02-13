@@ -54,24 +54,38 @@
                 @foreach(App\Models\Category::orderBy('created_at','desc')->where('parent_id',0)->take(7)->get() as $parent => $category)
     
     
-         <div class="col-md-3 col-6 mt-3">
+         <div class=" col-12 mt-3">
         <a href="{{route('category.product',$category->id)}}">
     
         
         <div class=" p-3" >
-        <div id="imageHolder" style="height: 70px ; position: relative;" >
-          <img  style="max-width: 100%;
-          max-height: 100%;  
-          position: absolute;
-          margin:auto;
-          top:0;
-          bottom:0;
-          left:0;
-          right:0;"  src="{{asset('image/category/'.$category->icon)}}">
-        </div>
+          <div class="row">
+            <div class="col-3">
+              <div id="imageHolder" style="height: 60px;width:70px ; position: relative;" >
+                <img  style="max-width: 100%;
+                max-height: 100%;  
+                position: absolute;
+                margin:auto;
+                top:0;
+                bottom:0;
+                left:0;
+                right:0;"  src="{{asset('image/category/'.$category->icon)}}">
+              </div>
+
+            </div>
+            <div class="col-6">
+              <p style="font-weight: 700 " class="text-center mt-3" >{{$category->name}}</p>
+    
+
+
+
+            </div>
+
+
+          </div>
+       
     
     
-        <p style="font-weight: 700 " class="text-center mt-3" >{{$category->name}}</p>
     
     
     

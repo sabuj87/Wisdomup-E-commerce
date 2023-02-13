@@ -39,12 +39,12 @@
                             <p class="mp0" >4.9 | 144 reviews</p>
                             <p class="mp0  ">40% off  |<strong> {{$product->price}} BDT</strong></p>
 
-                            <form id="cartform"  action="{{route('carts.store')}}" method="post" >
+                            <form id="cartformo"  action="{{route('carts.store')}}" method="post" >
                                 @csrf
                              <input type="hidden" name="product_id" value="{{$product->id}}">
                   
                              
-                                   <button style="" type="submit" class="btn btn-warning mt-3 px-4 boldFont" >Add to cart</button>
+                                   <button  type="submit" class="btn btn-warning mt-3 px-4 boldFont" >Add to cart</button>
                       
                          
                             

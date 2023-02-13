@@ -60,6 +60,15 @@ class SliderController extends Controller
                
                
             }
+            
+            if($request->hasFile('mimage')){
+                $image=$request->file('mimage');
+                $imgName=time().'m.'.$image->getClientOriginalExtension();
+                $image->move('image/slider',$imgName);
+                $slider->mimage=$imgName;
+               
+               
+            }
 
 
             $slider->save();
@@ -135,6 +144,22 @@ class SliderController extends Controller
                
             }
 
+            if($request->hasFile('mimage')){
+   
+                if(file_exists("image/slider/".$slider->mimage)){
+                    unlink("image/slider/".$slider->mimage);
+                }
+
+
+                $image=$request->file('mimage');
+                $imgName=time().'.'.$image->getClientOriginalExtension();
+                $image->move('image/slider',$imgName);
+                $slider->mimage=$imgName;
+               
+               
+            }
+
+
 
             $slider->save();
             flash('Slider Updated successfully')->success();
@@ -158,7 +183,7 @@ class SliderController extends Controller
         if(file_exists("image/slider/".$slider->image)){
             unlink("image/slider/".$slider->image);
         }
-
+      
         $slider->delete();
         flash('Slider deleted successfully')->success();
         return  back();

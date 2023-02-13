@@ -42,33 +42,75 @@ CHECKOUT</p>
   
 
 </div>
+<div class="doimage" >
 
-<div id="sliderFront" style="z-index: -1" class="owl-carousel owl-theme " >
-  @if($sliders)
-        @foreach ( $sliders as $slider )
-
-        <div class="slideItem"   > 
-          <div class="sliderHolder" >
-            <img src="{{asset('image/slider/'.$slider->image)}}"   class="d-block sildeImage w-100 " alt="...">
+  <div  id="sliderFront  " style="z-index: -1" class="  owl-carousel owl-theme  " >
+    @if($sliders)
+          @foreach ( $sliders as $slider )
+  
+          <div class="slideItem "   > 
+            <div class="sliderHolder" >
+              <img  src="{{asset('image/slider/'.$slider->image)}}" style="width: 1300px;" class="  sildeImage" alt="...">
+              {{-- <img  src="{{asset('image/slider/'.$slider->mimage)}}"   class=" moimage sildeImage    " alt="..."> --}}
+              
+            <div class="titleBox" >
+             <h4 class="font200 yellow-text boldFont" >{{$slider->title}}</h4>
+               @if($slider->button_text!=null)
+             <button class="btn btn-danger font150" >{{$slider->button_text}}</button>
+               @endif
+        
+            </div>
+              
             
-          <div class="titleBox" >
-           <h4 class="font200 yellow-text boldFont" >{{$slider->title}}</h4>
-             @if($slider->button_text!=null)
-           <button class="btn btn-danger font150" >{{$slider->button_text}}</button>
-             @endif
-      
+            </div>
           </div>
+  
+  
+          @endforeach
+  
+    @endif
+  
+  
+  </div>
+
+</div>
+
+
+<div class="moimage" >
+
+  <div id="sliderFront  " style="z-index: -1" class="  owl-carousel owl-theme  " >
+    @if($sliders)
+          @foreach ( $sliders as $slider )
+  
+          <div class="slideItem "   > 
+            <div class="sliderHolder" >
+              {{-- <img  src="{{asset('image/slider/'.$slider->image)}}" style="width: 1300px;" class=" d-block sildeImage" alt="..."> --}}
+              <img  src="{{asset('image/slider/'.$slider->mimage)}}"   class=" w-100  sildeImage    " alt="...">
+              
+            <div class="titleBox" >
+             <h4 class="font200 yellow-text boldFont" >{{$slider->title}}</h4>
+               @if($slider->button_text!=null)
+             <button class="btn btn-danger font150" >{{$slider->button_text}}</button>
+               @endif
+        
+            </div>
+              
             
-          
+            </div>
           </div>
-        </div>
-
-        @endforeach
-
-  @endif
+  
+  
+          @endforeach
+  
+    @endif
+  
+  
+  </div>
 
 
 </div>
+
+
 
 
   <h5 class="mt-2 " style="font-weight: 700" >SHOP BY CATEGORY</h5>
