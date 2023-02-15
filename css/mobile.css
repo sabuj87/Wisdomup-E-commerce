@@ -27,7 +27,7 @@ width: 200px;
 }
 
 .inner_wrapper{
-    width:2000px;
+    width: 1300px;
 }
 
 .outer_wrapper{
@@ -127,4 +127,9 @@ width: 200px;
 }
 .moimage{
     display: block;
+}
+
+.cart{
+    height:100vh;position:fixed;top:0;right:0;z-index:4;background-color:white;width:80%;overflow: scroll;
+
 }

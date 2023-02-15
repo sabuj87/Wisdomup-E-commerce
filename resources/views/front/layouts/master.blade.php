@@ -8,12 +8,12 @@
 </head> 
 <body>
    @if (Session::has('cart'))
-   <div id="cart-panel" class="swipeRight" style="height:100vh;position:fixed;top:0;right:0;z-index:4;background-color:white;width:40%;overflow: scroll;" >
+   <div id="cart-panel" class="swipeRight cart"  >
     <div class=" ">
         <div class="p-2" style="background-color: rgb(0, 0, 0);;display:flex">
 
             <h5 class="text-white mt-1 boldFont">Cart Items</h5>
-            <i id="exitBtn" style="margin-left: 80%;font-size:120%" class="fa-solid fa-xmark mt-2 me-"></i>
+            <i id="exitBtn" style="margin-left: 65%;font-size:120%;color:white" class="fa-solid fa-xmark mt-2 me-"></i>
 
             
         
@@ -206,7 +206,7 @@
 
             </div>
             <div class="colo-2-1 text-center">
-                <a href="">  <i style="font-size: 130%;" class="fa-solid fa-layer-group mt-3"></i></a>
+                <a href="{{route('allcategory')}}">  <i style="font-size: 130%;" class="fa-solid fa-layer-group mt-3"></i></a>
                
               
                 <p>Category</p>
@@ -241,6 +241,8 @@
    
     </div>
 
+
+   
 </div>
 @include('front.partial.footer')
 

@@ -37,9 +37,10 @@ class CategoryControllerFront extends Controller
 
     public function showProduct($id){
 
-      
+      $cart = new Cart();
+      $carts = $cart->totalCarts();
       $category = Category::find($id);
-      return view('front.pages.CategoryProduct',compact('category'));
+      return view('front.pages.CategoryProduct',compact('category','carts'));
 
 
 

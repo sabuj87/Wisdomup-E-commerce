@@ -199,8 +199,8 @@
             
           </ul>
           <form action="{{route('search')}}" method="GET" class="d-flex">
-            <input class="form-control me-2" type="search" name="key" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <input style="width:500px" class="form-control me-2" type="search" name="key" placeholder="Search" aria-label="Search">
+            <button style="width: 10%;margin-left:-7px" class="  btn btn-outline-success " type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
 
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">

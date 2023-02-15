@@ -2,7 +2,7 @@
 @section('content')
 <h5 class="mt-2 " style="font-weight: 700" >All CATEGORY</h5>
 @if($allcategory)
-<div class="row" >
+<div class="row mb-5" >
 @foreach($allcategory as $key => $category)
 
 

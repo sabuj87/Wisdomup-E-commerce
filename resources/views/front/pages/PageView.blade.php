@@ -5,67 +5,91 @@
     @if($place)
 
      <h5 style="font-weight: bold "  class="mt-3 p-2 bg-gray" >{{$place->name}}</h5> 
-     <div class="row" >
+     <div class="row mb-5 " >
 
 
  
      @foreach ($place->products as $product)
-         <div class="col-md-4 mt-2 " >
+     <div class="col-md-3 mt-2">
+      <a href="{{route('product.show',$product->slug)}}">
 
-            <a href="{{route('product.show',$product->slug)}}">
+        <div class="card p-2">
+          <div class="row">
+           <div class="col-5 ">
+
+            <div id="imageHolder" style="height: 100% ; position: relative;background-color:rgb(238, 238, 238)" >
+              <img  style="max-width: 100%;
+              max-height: 100%;  
+              position: absolute;
+              margin:auto;
+              top:0;
+              bottom:0;
+              left:0;
+              right:0;"  src="{{asset('image/product/'.$product->image)}}">
+            </div>
+
+           </div>
+
+           <div class="col-7">
+
+            <h6 class="boldFont  " >{{Str::limit($product->title,17)}}</h6>
+     
 
 
+            <span class="colorGreen" >  
+              @if ($product->offerprice!=null)
+              @php
+                $off=$product->offerprice;
+                $price=$product->price;
+                $rest=$price-$off;
+                $result=($rest*100)/$price;
+        $round=round($result,2) ;
+
+              @endphp
+              
+             {{ $round}} % off</span> 
+
+            @endif | <span class="boldFont"> Rs @if ($product->offerprice!=null) {{$product->offerprice}}  <span class="text-danger"><s>{{$product->price}}</s></span> @else <span>{{$product->price}} </span>   @endif</span>
+
+            <hr>
+            <p class="mp-0 border rd-10 p-1">4.9 | 54 Reviews</p>
+            <p class="mp-0">15% extra discount</p>
+            <form   action="{{route('carts.store')}}" method="post" >
+              @csrf
+           <input type="hidden" name="product_id" value="{{$product->id}}">
 
            
-            <div class="card" >
-                <div class="row">
-                    <div class="col-4">
-                      <div id="imageHolder" style="height: 150px ; position: relative;background-color:rgb(238, 238, 238)" >
-                          <img  style="max-width: 100%;
-                          max-height: 100%;  
-                          position: absolute;
-                          margin:auto;
-                          top:0;
-                          bottom:0;
-                          left:0;
-                          right:0;padding:10px"  src="{{asset('image/product/'.$product->image)}}">
-                        </div>
-  
-                    </div>
-  
-                    <div class="col-8 ">
-                        <div class="" >
-                            <h6 style="font-weight: bold " class="mt-2  " >{{$product->title}}</h6>
-                            <p class="mp0" >4.9 | 144 reviews</p>
-                            <p class="mp0  ">40% off  |<strong> {{$product->price}} BDT</strong></p>
-                            <form id="cartform"  action="{{route('carts.store')}}" method="post" >
-                                @csrf
-                             <input type="hidden" name="product_id" value="{{$product->id}}">
-                  
-                             
-                                   <button style="margin-left: -22px ;width:108%" type="submit" class="btn btn-warning mt-5  boldFont" >Add to cart</button>
-                      
-                         
-                            
-                     
-                            </form>
-                        </div>
-                    
-
-
-                  </div>
-  
-              </div>
+                 <button type="submit" class="btn btn-warning mt-2 w-100  boldFont" >Add to cart</button>
+    
+       
+          
+   
+          </form>
 
 
 
-            </div>
-        
-            </a>
-         
-            
 
-         </div>
+           </div>
+
+
+
+          </div>
+
+    
+
+
+
+        </div>
+      
+      
+      </a>
+      
+
+
+
+
+    </div>
+
          
 
 

@@ -30,9 +30,10 @@ class HomeControllerFront extends Controller
     
 
     public  function page($id){
-        
+        $cart = new Cart();
+        $carts = $cart->totalCarts();
         $place=Place::find($id);
-        return view('front.pages.PageView',compact('place'));
+        return view('front.pages.PageView',compact('place','carts'));
 }
 
     public  function allcategory(){
@@ -44,7 +45,10 @@ class HomeControllerFront extends Controller
    $collection=Collection::find($id);
 
    if(!is_null($collection)){
-    return view('front.pages.collection',compact('collection'));
+
+    $cart = new Cart();
+    $carts = $cart->totalCarts();
+    return view('front.pages.collection',compact('collection','carts'));
 
    }
 

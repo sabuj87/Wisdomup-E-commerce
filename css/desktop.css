@@ -714,3 +714,7 @@ display: none;}
 .moimage{
     display: none;
 }
+.cart{
+    height:100vh;position:fixed;top:0;right:0;z-index:4;background-color:white;width:40%;overflow: scroll;
+
+}
